@@ -1,0 +1,23 @@
+{
+    "name": "callmeaf/permission",
+    "description": "Manage Roles And Permissions",
+    "type": "library",
+    "require": {
+        "callmeaf/base": "dev-master",
+        "callmeaf/user": "dev-master",
+        "spatie/laravel-permission": "^6.7"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Callmeaf\\Permission\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "alikhoshkar",
+            "email": "alikhoshkar2000@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
