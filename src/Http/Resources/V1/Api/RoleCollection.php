@@ -20,14 +20,14 @@ class RoleCollection extends ResourceCollection
     public function toArray(Request $request): array
     {
         return [
-            'data' => $this->collection->map(fn($user) => toArrayResource(data: [
-                'id' => fn() => $user->id,
-                'name' => fn() => $user->name,
-                'name_fa' => fn() => $user->name_fa,
-                'created_at' => fn() => $user->created_at,
-                'created_at_text' => fn() => $user->createdAtText,
-                'updated_at' => fn() => $user->updated_at,
-                'updated_at_text' => fn() => $user->updatedAtText,
+            'data' => $this->collection->map(fn($role) => toArrayResource(data: [
+                'id' => fn() => $role->id,
+                'name' => fn() => $role->name,
+                'name_fa' => fn() => $role->name_fa,
+                'created_at' => fn() => $role->created_at,
+                'created_at_text' => fn() => $role->createdAtText,
+                'updated_at' => fn() => $role->updated_at,
+                'updated_at_text' => fn() => $role->updatedAtText,
             ],only: $this->only)),
         ];
     }
