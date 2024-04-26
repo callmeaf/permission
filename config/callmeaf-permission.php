@@ -37,7 +37,9 @@ return [
         'permissions' => \Callmeaf\Permission\Utilities\V1\PermissionFormRequestAuthorizer::class,
     ],
     'middlewares' => [
-        'global' => [],
+        'global' => [
+            'auth:sanctum',
+        ],
     ],
     'searcher' => \Callmeaf\Permission\Utilities\V1\PermissionSearcher::class,
     'seeders' => [

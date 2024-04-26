@@ -38,6 +38,10 @@ return [
         'destroy' => [
             //
         ],
+        'sync_permissions' => [
+            'permissions_ids' => false,
+            'permissions_ids.*' => true,
+        ],
     ],
     'resources' => [
         'index' => [
@@ -97,12 +101,24 @@ return [
                 'updated_at_text',
             ],
         ],
+        'sync_permissions' => [
+            'relations' => [],
+            'attributes' => [
+                'id',
+                'name',
+                'name_fa',
+                'created_at_text',
+                'updated_at_text',
+            ],
+        ],
     ],
     'controllers' => [
         'roles' => \Callmeaf\Permission\Http\Controllers\V1\Api\RoleController::class,
     ],
     'middlewares' => [
-        'global' => [],
+        'global' => [
+            'auth:sanctum',
+        ],
     ],
     'searcher' => \Callmeaf\Permission\Utilities\V1\RoleSearcher::class,
 ];

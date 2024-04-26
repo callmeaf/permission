@@ -7,10 +7,8 @@ Route::prefix(config('callmeaf-base.api.prefix_url'))->as(config('callmeaf-base.
         Route::apiResource('roles',config('callmeaf-role.controllers.roles'));
         Route::prefix('roles')->as('roles.')->controller(config('callmeaf-role.controllers.roles'))->group(function() {
             Route::prefix('{role}')->group(function() {
-                Route::patch('/restore','restore')->name('restore');
-                Route::delete('/force','forceDestroy')->name('force_destroy');
+                Route::patch('/permissions','syncPermissions')->name('permissions.sync');
             });
-            Route::get('/trashed/index','trashed')->name('trashed.index');
         });
 
     });
@@ -21,10 +19,8 @@ Route::prefix(config('callmeaf-base.api.prefix_url'))->as(config('callmeaf-base.
         Route::apiResource('permissions',config('callmeaf-permission.controllers.permissions'));
         Route::prefix('permissions')->as('permissions.')->controller(config('callmeaf-permission.controllers.permissions'))->group(function() {
             Route::prefix('{permission}')->group(function() {
-                Route::patch('/restore','restore')->name('restore');
-                Route::delete('/force','forceDestroy')->name('force_destroy');
+                //
             });
-            Route::get('/trashed/index','trashed')->name('trashed.index');
         });
 
     });

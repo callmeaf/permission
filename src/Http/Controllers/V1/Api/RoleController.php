@@ -10,7 +10,9 @@ use Callmeaf\Permission\Http\Requests\V1\Api\RoleDestroyRequest;
 use Callmeaf\Permission\Http\Requests\V1\Api\RoleIndexRequest;
 use Callmeaf\Permission\Http\Requests\V1\Api\RoleShowRequest;
 use Callmeaf\Permission\Http\Requests\V1\Api\RoleStoreRequest;
+use Callmeaf\Permission\Http\Requests\V1\Api\RoleSyncPermissionsRequest;
 use Callmeaf\Permission\Http\Requests\V1\Api\RoleUpdateRequest;
+use Callmeaf\Permission\Http\Resources\V1\Api\RoleResource;
 use Callmeaf\Permission\Models\Role;
 use Callmeaf\Permission\Services\V1\RoleService;
 
@@ -104,4 +106,18 @@ class RoleController extends ApiController
     }
 
 
+    public function syncPermissions(RoleSyncPermissionsRequest $request,Role $role)
+    {
+        try {
+            $role = $this->roleService->setModel($role)->syncPermissions(permissions: $request->get('permissions_ids',[]))->getModel(asResource: true,attributes: config('callmeaf-role.resources.sync_permissions.attributes'),relations: config('callmeaf-role.resources.sync_permissions.relations'));
+             return apiResponse([
+                 'role' => $role,
+             ],__('callmeaf-base::v1.successful_updated', [
+                 'title' => $role->responseTitles('sync_permissions'),
+             ]));
+        } catch (\Exception $exception) {
+            report($exception);
+            return apiResponse([],$exception);
+        }
+    }
 }

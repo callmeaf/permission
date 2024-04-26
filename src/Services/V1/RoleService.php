@@ -3,6 +3,7 @@
 namespace Callmeaf\Permission\Services\V1;
 
 use Callmeaf\Base\Services\V1\BaseService;
+use Callmeaf\Permission\Models\Permission;
 use Callmeaf\Permission\Services\V1\Contracts\RoleServiceInterface;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
@@ -22,5 +23,19 @@ class RoleService extends BaseService implements RoleServiceInterface
         $this->searcher = config('callmeaf-role.searcher');
     }
 
-
+    public function syncPermissions(iterable|Permission|int|string|null $permissions = []): RoleService
+    {
+        if(!is_iterable($permissions)) {
+            $permissions = is_null($permissions) ? [] : [$permissions];
+        }
+        foreach ($permissions as $key => $permission) {
+            if(!($permission instanceof Permission)) {
+                continue;
+            }
+            $permissions[$key] = $permission->id;
+        }
+        $this->model->permissions()->sync($permissions);
+        $this->freshModel();
+        return $this;
+    }
 }

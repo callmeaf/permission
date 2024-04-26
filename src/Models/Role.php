@@ -33,6 +33,7 @@ class Role extends \Spatie\Permission\Models\Role implements HasResponseTitles
             'destroy' => $this->fullName,
             'restore' => $this->fullName,
             'force_destroy' => $this->fullName,
+            'sync_permissions' => $this->fullName,
         ][$key];
     }
 }

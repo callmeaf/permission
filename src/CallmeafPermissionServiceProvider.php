@@ -4,7 +4,6 @@ namespace Callmeaf\Permission;
 
 use Database\Seeders\DatabaseSeeder;
 use Illuminate\Support\Facades\Event;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 
 class CallmeafPermissionServiceProvider extends ServiceProvider
