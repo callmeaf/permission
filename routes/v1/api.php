@@ -16,12 +16,12 @@ Route::prefix(config('callmeaf-base.api.prefix_url'))->as(config('callmeaf-base.
 
 Route::prefix(config('callmeaf-base.api.prefix_url'))->as(config('callmeaf-base.api.prefix_route_name'))->middleware(config('callmeaf-base.api.middlewares'))->group(function() {
     Route::middleware(config('callmeaf-permission.middlewares.global'))->group(function() {
-        Route::apiResource('permissions',config('callmeaf-permission.controllers.permissions'));
-        Route::prefix('permissions')->as('permissions.')->controller(config('callmeaf-permission.controllers.permissions'))->group(function() {
-            Route::prefix('{permission}')->group(function() {
-                //
-            });
-        });
+        Route::apiResource('permissions',config('callmeaf-permission.controllers.permissions'))->only(['index','show']);
+//        Route::prefix('permissions')->as('permissions.')->controller(config('callmeaf-permission.controllers.permissions'))->group(function() {
+//            Route::prefix('{permission}')->group(function() {
+//                //
+//            });
+//        });
 
     });
 });

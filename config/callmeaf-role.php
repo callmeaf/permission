@@ -121,4 +121,36 @@ return [
         ],
     ],
     'searcher' => \Callmeaf\Permission\Utilities\V1\RoleSearcher::class,
+    'enums' => [
+        'names' => \Callmeaf\Permission\Enums\RoleName::class,
+    ],
+    'permissions' => [
+        \Callmeaf\Permission\Enums\RoleName::SUPER_ADMIN->name => [
+            \Callmeaf\Permission\Enums\PermissionName::USER_INDEX->value,
+            \Callmeaf\Permission\Enums\PermissionName::USER_STORE->value,
+            \Callmeaf\Permission\Enums\PermissionName::USER_UPDATE->value,
+            \Callmeaf\Permission\Enums\PermissionName::USER_DESTROY->value,
+            \Callmeaf\Permission\Enums\PermissionName::USER_TRASHED->value,
+            \Callmeaf\Permission\Enums\PermissionName::USER_RESTORE->value,
+            \Callmeaf\Permission\Enums\PermissionName::ROLE_INDEX->value,
+            \Callmeaf\Permission\Enums\PermissionName::ROLE_STORE->value,
+            \Callmeaf\Permission\Enums\PermissionName::ROLE_UPDATE->value,
+            \Callmeaf\Permission\Enums\PermissionName::ROLE_DESTROY->value,
+            \Callmeaf\Permission\Enums\PermissionName::PERMISSION_INDEX->value,
+            \Callmeaf\Permission\Enums\PermissionName::PERMISSION_SHOW->value,
+        ],
+        \Callmeaf\Permission\Enums\RoleName::ADMIN->name => [
+            \Callmeaf\Permission\Enums\PermissionName::USER_INDEX->value,
+            \Callmeaf\Permission\Enums\PermissionName::USER_STORE->value,
+            \Callmeaf\Permission\Enums\PermissionName::USER_UPDATE->value,
+            \Callmeaf\Permission\Enums\PermissionName::USER_DESTROY->value,
+            \Callmeaf\Permission\Enums\PermissionName::USER_TRASHED->value,
+            \Callmeaf\Permission\Enums\PermissionName::USER_RESTORE->value,
+        ],
+        \Callmeaf\Permission\Enums\RoleName::USER->name => [
+            \Callmeaf\Permission\Enums\PermissionName::USER_STORE->value,
+            \Callmeaf\Permission\Enums\PermissionName::USER_UPDATE->value,
+            \Callmeaf\Permission\Enums\PermissionName::USER_DESTROY->value,
+        ],
+    ],
 ];

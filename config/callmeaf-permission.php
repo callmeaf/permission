@@ -15,6 +15,9 @@ return [
         'index' => [
             'name' => false,
         ],
+        'show' => [
+            //
+        ],
     ],
     'resources' => [
         'index' => [
@@ -27,6 +30,27 @@ return [
                 'id',
                 'name',
                 'name_text',
+            ],
+        ],
+        'show' => [
+            'relations' => [
+                'roles',
+            ],
+            'columns' => [
+                'id',
+                'name',
+            ],
+            'attributes' => [
+                'id',
+                'name',
+                'name_text',
+                'roles',
+                '!roles' => [
+                    'id',
+                    'name',
+                    'name_fa',
+                    'name_full',
+                ],
             ],
         ],
     ],
@@ -44,5 +68,6 @@ return [
     'searcher' => \Callmeaf\Permission\Utilities\V1\PermissionSearcher::class,
     'seeders' => [
         \Callmeaf\Permission\Seeders\PermissionSeeder::class,
+        \Callmeaf\Permission\Seeders\RoleSeeder::class,
     ],
 ];

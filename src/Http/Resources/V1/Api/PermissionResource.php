@@ -23,6 +23,7 @@ class PermissionResource extends JsonResource
             'id' => fn() => $this->id,
             'name' => fn() => $this->name,
             'name_text' => fn() => $this->nameText,
+            'roles' => fn() => new RoleCollection($this->roles,only: $this->only['!roles'] ?? [])
         ],only: $this->only);
     }
 }

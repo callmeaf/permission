@@ -16,4 +16,5 @@ enum PermissionName: string
     case ROLE_UPDATE = 'role_update';
     case ROLE_DESTROY = 'role_destroy';
     case PERMISSION_INDEX = 'permission_index';
+    case PERMISSION_SHOW = 'permission_show';
 }

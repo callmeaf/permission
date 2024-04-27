@@ -11,4 +11,9 @@ class PermissionFormRequestAuthorizer extends FormRequestAuthorizer
     {
         return userCan(PermissionName::PERMISSION_INDEX);
     }
+
+    public function show(): bool
+    {
+        return userCan(PermissionName::PERMISSION_SHOW);
+    }
 }

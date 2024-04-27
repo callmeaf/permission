@@ -2,11 +2,12 @@
 
 namespace Callmeaf\Permission\Models;
 
+use Callmeaf\Base\Contracts\HasEnum;
 use Callmeaf\Base\Contracts\HasResponseTitles;
 use Callmeaf\Base\Traits\HasDate;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
-class Role extends \Spatie\Permission\Models\Role implements HasResponseTitles
+class Role extends \Spatie\Permission\Models\Role implements HasResponseTitles,HasEnum
 {
     use HasDate;
     protected $guarded = false;
@@ -35,5 +36,10 @@ class Role extends \Spatie\Permission\Models\Role implements HasResponseTitles
             'force_destroy' => $this->fullName,
             'sync_permissions' => $this->fullName,
         ][$key];
+    }
+
+    public static function enumsLang(): array
+    {
+        return __('callmeaf-permission::enums');
     }
 }

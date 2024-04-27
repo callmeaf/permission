@@ -1,6 +1,7 @@
 <?php
 
 use Callmeaf\Permission\Enums\PermissionName;
+use Callmeaf\Permission\Enums\RoleName;
 
 return [
     PermissionName::class => [
@@ -16,5 +17,10 @@ return [
         PermissionName::ROLE_UPDATE->name => 'ویرایش نقش',
         PermissionName::ROLE_DESTROY->name => 'حذف دائم نقش',
         PermissionName::PERMISSION_INDEX->name => 'لیست سطخ دسترسی ها',
+    ],
+    RoleName::class => [
+        RoleName::SUPER_ADMIN->name => 'مدیر کل',
+        RoleName::ADMIN->name => 'مدیر',
+        RoleName::USER->name => 'کاربر'
     ],
 ];
