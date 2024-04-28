@@ -11,7 +11,7 @@ class PermissionIndexRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return app(config('callmeaf-permission.form_request_authorizers.permissions'))->index();
+        return app(config('callmeaf-permission.form_request_authorizers.permission'))->index();
     }
 
     /**

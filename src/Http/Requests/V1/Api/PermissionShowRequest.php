@@ -11,7 +11,7 @@ class PermissionShowRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return app(config('callmeaf-permission.form_request_authorizers.permissions'))->show();
+        return app(config('callmeaf-permission.form_request_authorizers.permission'))->show();
     }
 
     /**

@@ -58,7 +58,7 @@ return [
         'permissions' => \Callmeaf\Permission\Http\Controllers\V1\Api\PermissionController::class,
     ],
     'form_request_authorizers' => [
-        'permissions' => \Callmeaf\Permission\Utilities\V1\PermissionFormRequestAuthorizer::class,
+        'permission' => \Callmeaf\Permission\Utilities\V1\PermissionFormRequestAuthorizer::class,
     ],
     'middlewares' => [
         'global' => [

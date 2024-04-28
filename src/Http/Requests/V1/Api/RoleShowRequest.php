@@ -11,7 +11,7 @@ class RoleShowRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return app(config('callmeaf-role.form_request_authorizers.role'))->show();
     }
 
     /**

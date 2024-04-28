@@ -115,6 +115,9 @@ return [
     'controllers' => [
         'roles' => \Callmeaf\Permission\Http\Controllers\V1\Api\RoleController::class,
     ],
+    'form_request_authorizers' => [
+        'role' => \Callmeaf\Permission\Utilities\V1\RoleFormRequestAuthorizer::class,
+    ],
     'middlewares' => [
         'global' => [
             'auth:sanctum',
