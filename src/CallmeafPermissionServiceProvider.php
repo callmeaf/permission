@@ -2,8 +2,10 @@
 
 namespace Callmeaf\Permission;
 
+use Callmeaf\User\Models\User;
 use Database\Seeders\DatabaseSeeder;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
 class CallmeafPermissionServiceProvider extends ServiceProvider
@@ -35,6 +37,7 @@ class CallmeafPermissionServiceProvider extends ServiceProvider
         $this->registerViews();
         $this->registerLang();
         $this->registerSeeders();
+        $this->registerGates();
     }
 
     private function registerConfig(): void
@@ -108,6 +111,15 @@ class CallmeafPermissionServiceProvider extends ServiceProvider
     {
         $this->callAfterResolving(DatabaseSeeder::class,function ($seeder) {
             $seeder->callOnce(config('callmeaf-permission.seeders'));
+        });
+    }
+
+    private function registerGates(): void
+    {
+        // Implicitly grant "Super Admin" role all permissions
+        // This works in the app by using gate-related functions like auth()->user->can() and @can()
+        Gate::before(function (User $user, $ability) {
+            return $user->isSuperAdmin() ? true : null;
         });
     }
 }

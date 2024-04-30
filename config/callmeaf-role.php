@@ -129,18 +129,7 @@ return [
     ],
     'permissions' => [
         \Callmeaf\Permission\Enums\RoleName::SUPER_ADMIN->name => [
-            \Callmeaf\Permission\Enums\PermissionName::USER_INDEX->value,
-            \Callmeaf\Permission\Enums\PermissionName::USER_STORE->value,
-            \Callmeaf\Permission\Enums\PermissionName::USER_UPDATE->value,
-            \Callmeaf\Permission\Enums\PermissionName::USER_DESTROY->value,
-            \Callmeaf\Permission\Enums\PermissionName::USER_TRASHED->value,
-            \Callmeaf\Permission\Enums\PermissionName::USER_RESTORE->value,
-            \Callmeaf\Permission\Enums\PermissionName::ROLE_INDEX->value,
-            \Callmeaf\Permission\Enums\PermissionName::ROLE_STORE->value,
-            \Callmeaf\Permission\Enums\PermissionName::ROLE_UPDATE->value,
-            \Callmeaf\Permission\Enums\PermissionName::ROLE_DESTROY->value,
-            \Callmeaf\Permission\Enums\PermissionName::PERMISSION_INDEX->value,
-            \Callmeaf\Permission\Enums\PermissionName::PERMISSION_SHOW->value,
+           // get all permissions if empty array, only for super admin role.
         ],
         \Callmeaf\Permission\Enums\RoleName::ADMIN->name => [
             \Callmeaf\Permission\Enums\PermissionName::USER_INDEX->value,
