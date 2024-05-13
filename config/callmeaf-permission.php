@@ -58,14 +58,12 @@ return [
         'permissions' => \Callmeaf\Permission\Http\Controllers\V1\Api\PermissionController::class,
     ],
     'form_request_authorizers' => [
-        'permission' => \Callmeaf\Permission\Utilities\V1\PermissionFormRequestAuthorizer::class,
+        'permission' => \Callmeaf\Permission\Utilities\V1\Permission\Api\PermissionFormRequestAuthorizer::class,
     ],
     'middlewares' => [
-        'global' => [
-            'auth:sanctum',
-        ],
+        'permission' => \Callmeaf\Permission\Utilities\V1\Permission\Api\PermissionControllerMiddleware::class,
     ],
-    'searcher' => \Callmeaf\Permission\Utilities\V1\PermissionSearcher::class,
+    'searcher' => \Callmeaf\Permission\Utilities\V1\Permission\Api\PermissionSearcher::class,
     'seeders' => [
         \Callmeaf\Permission\Seeders\PermissionSeeder::class,
         \Callmeaf\Permission\Seeders\RoleSeeder::class,

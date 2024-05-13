@@ -116,14 +116,12 @@ return [
         'roles' => \Callmeaf\Permission\Http\Controllers\V1\Api\RoleController::class,
     ],
     'form_request_authorizers' => [
-        'role' => \Callmeaf\Permission\Utilities\V1\RoleFormRequestAuthorizer::class,
+        'role' => \Callmeaf\Permission\Utilities\V1\Role\Api\RoleFormRequestAuthorizer::class,
     ],
     'middlewares' => [
-        'global' => [
-            'auth:sanctum',
-        ],
+        'role' => \Callmeaf\Permission\Utilities\V1\Role\Api\RoleControllerMiddleware::class,
     ],
-    'searcher' => \Callmeaf\Permission\Utilities\V1\RoleSearcher::class,
+    'searcher' => \Callmeaf\Permission\Utilities\V1\Role\Api\RoleSearcher::class,
     'enums' => [
         'names' => \Callmeaf\Permission\Enums\RoleName::class,
     ],

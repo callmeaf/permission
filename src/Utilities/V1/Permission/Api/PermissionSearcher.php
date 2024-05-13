@@ -1,11 +1,11 @@
 <?php
 
-namespace Callmeaf\Permission\Utilities\V1;
+namespace Callmeaf\Permission\Utilities\V1\Permission\Api;
 
 use Callmeaf\Base\Utilities\V1\Contracts\SearcherInterface;
 use Illuminate\Database\Eloquent\Builder;
 
-class RoleSearcher implements SearcherInterface
+class PermissionSearcher implements SearcherInterface
 {
     public function apply(Builder $query, array $filters = []): void
     {

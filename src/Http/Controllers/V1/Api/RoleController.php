@@ -21,6 +21,7 @@ class RoleController extends ApiController
     protected RoleService $roleService;
     public function __construct()
     {
+        app(config('callmeaf-role.middlewares.role'))($this);
         $this->roleService = app(config('callmeaf-role.service'));
     }
 
