@@ -23,7 +23,7 @@ class PermissionShowRequest extends FormRequest
     {
         return validationManager(rules: [
 
-        ],filters: config("callmeaf-permission.validations.show"));
+        ],filters: app(config("callmeaf-permission.validations.permission"))->show());
     }
 
 }

@@ -20,28 +20,7 @@ return [
         ],
     ],
     'validations' => [
-        'index' => [
-            'name' => false,
-            'name_fa' => false,
-        ],
-        'store' => [
-            'name' => true,
-            'name_fa' => true,
-        ],
-        'show' => [
-
-        ],
-        'update' => [
-            'name' => true,
-            'name_fa' => true,
-        ],
-        'destroy' => [
-            //
-        ],
-        'sync_permissions' => [
-            'permissions_ids' => false,
-            'permissions_ids.*' => true,
-        ],
+        'role' => \Callmeaf\Permission\Utilities\V1\Role\Api\RoleFormRequestValidator::class,
     ],
     'resources' => [
         'index' => [

@@ -24,7 +24,7 @@ class PermissionIndexRequest extends FormRequest
         return validationManager(rules: [
             'name' => [],
         ],filters: [
-            ...config("callmeaf-permission.validations.index"),
+            ...app(config("callmeaf-permission.validations.permission"))->index(),
             ...config('callmeaf-base.default_searcher_validation'),
         ]);
     }

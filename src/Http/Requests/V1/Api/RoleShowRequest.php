@@ -23,7 +23,7 @@ class RoleShowRequest extends FormRequest
     {
         return validationManager(rules: [
 
-        ],filters: config("callmeaf-role.validations.show"));
+        ],filters: app(config("callmeaf-role.validations.role"))->show());
     }
 
 }

@@ -12,12 +12,7 @@ return [
         // events
     ],
     'validations' => [
-        'index' => [
-            'name' => false,
-        ],
-        'show' => [
-            //
-        ],
+        'permission' => \Callmeaf\Permission\Utilities\V1\Permission\Api\PermissionFormRequestValidator::class,
     ],
     'resources' => [
         'index' => [

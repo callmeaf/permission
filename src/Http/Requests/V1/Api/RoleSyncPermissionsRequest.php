@@ -28,7 +28,7 @@ class RoleSyncPermissionsRequest extends FormRequest
         return validationManager(rules: [
             'permissions_ids' => ['array'],
             'permissions_ids.*' => [Rule::exists(config('callmeaf-permission.model'),'id')],
-        ],filters: config("callmeaf-role.validations.sync_permissions"));
+        ],filters:  app(config("callmeaf-role.validations.role"))->syncPermissions());
     }
 
 }

@@ -25,7 +25,7 @@ class RoleIndexRequest extends FormRequest
             'name' => [],
             'name_fa' => [],
         ],filters: [
-            ...config("callmeaf-role.validations.index"),
+            ...app(config("callmeaf-role.validations.role"))->index(),
             ...config('callmeaf-base.default_searcher_validation'),
         ]);
     }

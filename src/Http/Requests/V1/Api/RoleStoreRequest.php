@@ -25,7 +25,7 @@ class RoleStoreRequest extends FormRequest
         return validationManager(rules: [
             'name' => ['string','min:3','max:255',Rule::unique(config('callmeaf-role.model'),'name')],
             'name_fa' => ['string','min:3','max:255',Rule::unique(config('callmeaf-role.model'),'name_fa')],
-        ],filters: config("callmeaf-role.validations.store"));
+        ],filters: app(config("callmeaf-role.validations.role"))->store());
     }
 
 }

@@ -23,7 +23,7 @@ class RoleDestroyRequest extends FormRequest
     {
         return validationManager(rules: [
 
-        ],filters: config("callmeaf-role.validations.destroy"));
+        ],filters:  app(config("callmeaf-role.validations.role"))->destroy());
     }
 
 }

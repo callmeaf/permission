@@ -26,7 +26,7 @@ class RoleUpdateRequest extends FormRequest
         return validationManager(rules: [
             'name' => ['string','min:3','max:255',Rule::unique(config('callmeaf-role.model'),'name')->ignore($roleId)],
             'name_fa' => ['string','min:3','max:255',Rule::unique(config('callmeaf-role.model'),'name_fa')->ignore($roleId)],
-        ],filters: config("callmeaf-role.validations.update"));
+        ],filters:  app(config("callmeaf-role.validations.role"))->update());
     }
 
 }
