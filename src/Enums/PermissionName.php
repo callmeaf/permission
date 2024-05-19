@@ -27,4 +27,12 @@ enum PermissionName: string
     case PRODUCT_CATEGORY_TRASHED = 'product_category_trashed';
     case PRODUCT_CATEGORY_RESTORE = 'product_category_restore';
     case PRODUCT_CATEGORY_FORCE_DESTROY = 'product_category_force_destroy';
+    case PRODUCT_INDEX = 'product_index';
+    case PRODUCT_STORE = 'product_store';
+    case PRODUCT_SHOW = 'product_show';
+    case PRODUCT_UPDATE = 'product_update';
+    case PRODUCT_DESTROY = 'product_destroy';
+    case PRODUCT_TRASHED = 'product_trashed';
+    case PRODUCT_RESTORE = 'product_restore';
+    case PRODUCT_FORCE_DESTROY = 'product_force_destroy';
 }
