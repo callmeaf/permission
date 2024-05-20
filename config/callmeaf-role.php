@@ -122,4 +122,7 @@ return [
             \Callmeaf\Permission\Enums\PermissionName::USER_DESTROY->value,
         ],
     ],
+    'seeders' => [
+        \Callmeaf\Permission\Seeders\RoleSeeder::class,
+    ],
 ];

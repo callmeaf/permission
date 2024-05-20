@@ -61,6 +61,5 @@ return [
     'searcher' => \Callmeaf\Permission\Utilities\V1\Permission\Api\PermissionSearcher::class,
     'seeders' => [
         \Callmeaf\Permission\Seeders\PermissionSeeder::class,
-        \Callmeaf\Permission\Seeders\RoleSeeder::class,
     ],
 ];

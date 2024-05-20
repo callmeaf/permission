@@ -111,6 +111,7 @@ class CallmeafPermissionServiceProvider extends ServiceProvider
     {
         $this->callAfterResolving(DatabaseSeeder::class,function ($seeder) {
             $seeder->callOnce(config('callmeaf-permission.seeders'));
+            $seeder->callOnce(config('callmeaf-role.seeders'));
         });
     }
 
