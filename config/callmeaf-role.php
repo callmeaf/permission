@@ -9,7 +9,13 @@ return [
         'guard_name' => 'web'
     ],
     'events' => [
+        \Callmeaf\Permission\Events\RoleIndexed::class => [
+            // listeners
+        ],
         \Callmeaf\Permission\Events\RoleStored::class => [
+            // listeners
+        ],
+        \Callmeaf\Permission\Events\RoleShowed::class => [
             // listeners
         ],
         \Callmeaf\Permission\Events\RoleUpdated::class => [
@@ -18,6 +24,10 @@ return [
         \Callmeaf\Permission\Events\RoleDestroyed::class => [
             // listeners
         ],
+        \Callmeaf\Permission\Events\RoleSyncedPermissions::class => [
+            // listeners
+        ],
+
     ],
     'validations' => [
         'role' => \Callmeaf\Permission\Utilities\V1\Role\Api\RoleFormRequestValidator::class,

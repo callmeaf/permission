@@ -3,6 +3,8 @@
 namespace Callmeaf\Permission\Http\Controllers\V1\Api;
 
 use Callmeaf\Base\Http\Controllers\V1\Api\ApiController;
+use Callmeaf\Permission\Events\PermissionIndexed;
+use Callmeaf\Permission\Events\PermissionShowed;
 use Callmeaf\Permission\Http\Requests\V1\Api\PermissionIndexRequest;
 use Callmeaf\Permission\Http\Requests\V1\Api\PermissionShowRequest;
 use Callmeaf\Permission\Models\Permission;
@@ -24,7 +26,9 @@ class PermissionController extends ApiController
                 relations: config('callmeaf-permission.resources.index.relations'),
                 columns: config('callmeaf-permission.resources.index.columns'),
                 filters: $request->validated(),
-            )->getCollection(asResourceCollection: true,asResponseData: true,attributes: config('callmeaf-permission.resources.index.attributes'));
+            )->getCollection(asResourceCollection: true,asResponseData: true,attributes: config('callmeaf-permission.resources.index.attributes'),events: [
+                PermissionIndexed::class,
+            ]);
             return apiResponse([
                 'permissions' => $permissions,
             ],__('callmeaf-base::v1.successful_loaded'));
@@ -37,7 +41,14 @@ class PermissionController extends ApiController
     public function show(PermissionShowRequest $request,Permission $permission)
     {
         try {
-             $permission = $this->permissionService->setModel($permission)->getModel(asResource: true,attributes: config('callmeaf-permission.resources.show.attributes'),relations: config('callemaf-permission.resources.show.relations'));
+             $permission = $this->permissionService->setModel($permission)->getModel(
+                 asResource: true,
+                 attributes: config('callmeaf-permission.resources.show.attributes'),
+                 relations: config('callmeaf-permission.resources.show.relations'),
+                 events: [
+                     PermissionShowed::class,
+                 ],
+             );
              return apiResponse([
                  'permission' => $permission,
              ],__('base::v1.successful_loaded'));

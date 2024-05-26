@@ -9,7 +9,12 @@ return [
         'guard_name' => 'web',
     ],
     'events' => [
-        // events
+        \Callmeaf\Permission\Events\PermissionIndexed::class => [
+            // listeners
+        ],
+        \Callmeaf\Permission\Events\PermissionShowed::class => [
+            // listeners
+        ],
     ],
     'validations' => [
         'permission' => \Callmeaf\Permission\Utilities\V1\Permission\Api\PermissionFormRequestValidator::class,
@@ -30,10 +35,6 @@ return [
         'show' => [
             'relations' => [
                 'roles',
-            ],
-            'columns' => [
-                'id',
-                'name',
             ],
             'attributes' => [
                 'id',
