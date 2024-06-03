@@ -40,7 +40,9 @@ enum PermissionName: string
     case PACKAGE_SHOW = 'package_show';
     case PACKAGE_UPDATE = 'package_update';
     case PACKAGE_DESTROY = 'package_destroy';
-    case PACKAGE_TRASHED = 'package_trashed';
-    case PACKAGE_RESTORE = 'package_restore';
-    case PACKAGE_FORCE_DESTROY = 'package_force_destroy';
+    case VARIATION_INDEX = 'variation_index';
+    case VARIATION_STORE = 'variation_store';
+    case VARIATION_SHOW = 'variation_show';
+    case VARIATION_UPDATE = 'variation_update';
+    case VARIATION_DESTROY = 'variation_destroy';
 }
