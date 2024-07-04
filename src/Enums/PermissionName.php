@@ -45,4 +45,12 @@ enum PermissionName: string
     case VARIATION_SHOW = 'variation_show';
     case VARIATION_UPDATE = 'variation_update';
     case VARIATION_DESTROY = 'variation_destroy';
+    case PAYMENT_INDEX = 'payment_index';
+    case PAYMENT_STORE = 'payment_store';
+    case PAYMENT_SHOW = 'payment_show';
+    case PAYMENT_UPDATE = 'payment_update';
+    case PAYMENT_DESTROY = 'payment_destroy';
+    case PAYMENT_TRASHED = 'payment_trashed';
+    case PAYMENT_RESTORE = 'payment_restore';
+    case PAYMENT_FORCE_DESTROY = 'payment_force_destroy';
 }
