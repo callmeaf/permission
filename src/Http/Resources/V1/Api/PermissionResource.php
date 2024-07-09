@@ -23,7 +23,7 @@ class PermissionResource extends JsonResource
             'id' => fn() => $this->id,
             'name' => fn() => $this->name,
             'name_text' => fn() => $this->nameText,
-            'roles' => fn() => new (config('callmeaf-role.model_resource_collection'))($this->roles,only: $this->only['!roles'] ?? [])
+            'roles' => fn() => $this->roles->count() ? new (config('callmeaf-role.model_resource_collection'))($this->roles,only: $this->only['!roles'] ?? []) : null
         ],only: $this->only);
     }
 }
