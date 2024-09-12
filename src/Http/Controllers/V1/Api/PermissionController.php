@@ -9,24 +9,28 @@ use Callmeaf\Permission\Http\Requests\V1\Api\PermissionIndexRequest;
 use Callmeaf\Permission\Http\Requests\V1\Api\PermissionShowRequest;
 use Callmeaf\Permission\Models\Permission;
 use Callmeaf\Permission\Services\V1\PermissionService;
+use Callmeaf\Permission\Utilities\V1\Permission\Api\PermissionResources;
 
 class PermissionController extends ApiController
 {
     protected PermissionService $permissionService;
+    protected PermissionResources $permissionResources;
     public function __construct()
     {
         app(config('callmeaf-permission.middlewares.permission'))($this);
         $this->permissionService = app(config('callmeaf-permission.service'));
+        $this->permissionResources = app(config('callmeaf-permission.resources.permission'));
     }
 
     public function index(PermissionIndexRequest $request)
     {
         try {
+            $resources = $this->permissionResources->index();
             $permissions = $this->permissionService->all(
-                relations: config('callmeaf-permission.resources.index.relations'),
-                columns: config('callmeaf-permission.resources.index.columns'),
+                relations: $resources->relations(),
+                columns: $resources->columns(),
                 filters: $request->validated(),
-            )->getCollection(asResourceCollection: true,asResponseData: true,attributes: config('callmeaf-permission.resources.index.attributes'),events: [
+            )->getCollection(asResourceCollection: true,asResponseData: true,attributes: $resources->attributes(),events: [
                 PermissionIndexed::class,
             ]);
             return apiResponse([
@@ -41,10 +45,11 @@ class PermissionController extends ApiController
     public function show(PermissionShowRequest $request,Permission $permission)
     {
         try {
+            $resources = $this->permissionResources->show();
              $permission = $this->permissionService->setModel($permission)->getModel(
                  asResource: true,
-                 attributes: config('callmeaf-permission.resources.show.attributes'),
-                 relations: config('callmeaf-permission.resources.show.relations'),
+                 attributes: $resources->attributes(),
+                 relations: $resources->relations(),
                  events: [
                      PermissionShowed::class,
                  ],

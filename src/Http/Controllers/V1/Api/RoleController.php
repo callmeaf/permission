@@ -18,24 +18,28 @@ use Callmeaf\Permission\Http\Requests\V1\Api\RoleUpdateRequest;
 use Callmeaf\Permission\Http\Resources\V1\Api\RoleResource;
 use Callmeaf\Permission\Models\Role;
 use Callmeaf\Permission\Services\V1\RoleService;
+use Callmeaf\Permission\Utilities\V1\Role\Api\RoleResources;
 
 class RoleController extends ApiController
 {
     protected RoleService $roleService;
+    protected RoleResources $roleResources;
     public function __construct()
     {
         app(config('callmeaf-role.middlewares.role'))($this);
         $this->roleService = app(config('callmeaf-role.service'));
+        $this->roleResources = app(config('callmeaf-role.resources.role'));
     }
 
     public function index(RoleIndexRequest $request)
     {
         try {
+            $resources = $this->roleResources->index();
             $roles = $this->roleService->all(
-                relations: config('callmeaf-role.resources.index.relations'),
-                columns: config('callmeaf-role.resources.index.columns'),
+                relations: $resources->relations(),
+                columns: $resources->columns(),
                 filters: $request->validated(),
-            )->getCollection(asResourceCollection: true,asResponseData: true,attributes: config('callmeaf-role.resources.index.attributes'),events: [
+            )->getCollection(asResourceCollection: true,asResponseData: true,attributes: $resources->attributes(),events: [
                 RoleIndexed::class,
             ]);
             return apiResponse([
@@ -50,9 +54,10 @@ class RoleController extends ApiController
     public function store(RoleStoreRequest $request)
     {
         try {
+            $resources = $this->roleResources->index();
             $role = $this->roleService->create(data: $request->validated(),events: [
                 RoleStored::class
-            ])->getModel(asResource: true,attributes: config('callmeaf-role.resources.store.attributes'),relations: config('callmeaf-role.resources.store.relations'));
+            ])->getModel(asResource: true,attributes: $resources->attributes(),relations: $resources->relations());
             return apiResponse([
                 'role' => $role,
             ],__('callmeaf-base::v1.successful_created', [
@@ -67,10 +72,11 @@ class RoleController extends ApiController
     public function show(RoleShowRequest $request,Role $role)
     {
         try {
+            $resources = $this->roleResources->show();
             $role = $this->roleService->setModel($role)->getModel(
                 asResource: true,
-                attributes: config('callmeaf-role.resources.show.attributes'),
-                relations: config('callmeaf-role.resources.show.relations'),
+                attributes: $resources->attributes(),
+                relations: $resources->relations(),
                 events: [
                     RoleShowed::class,
                 ],
@@ -87,9 +93,10 @@ class RoleController extends ApiController
     public function update(RoleUpdateRequest $request,Role $role)
     {
         try {
+            $resources = $this->roleResources->show();
             $role = $this->roleService->setModel($role)->update(data: $request->validated(),events: [
                 RoleUpdated::class,
-            ])->getModel(asResource: true,attributes: config('callmeaf-role.resources.update.attributes'),relations: config('callmeaf-role.resources.update.relations'));
+            ])->getModel(asResource: true,attributes: $resources->attributes(),relations: $resources->relations());
             return apiResponse([
                 'role' => $role,
             ],__('callmeaf-base::v1.successful_updated', [
@@ -104,9 +111,10 @@ class RoleController extends ApiController
     public function destroy(RoleDestroyRequest $request,Role $role)
     {
         try {
+            $resources = $this->roleResources->destroy();
             $role = $this->roleService->setModel($role)->delete(events: [
                 RoleDestroyed::class,
-            ])->getModel(asResource: true,attributes: config('callmeaf-role.resources.destroy.attributes'),relations: config('callmeaf-role.resources.destroy.relations'));
+            ])->getModel(asResource: true,attributes: $resources->attributes(),relations: $resources->relations());
             return apiResponse([
                 'role' => $role,
             ],__('callmeaf-base::v1.successful_deleted', [
@@ -122,11 +130,12 @@ class RoleController extends ApiController
     public function syncPermissions(RoleSyncPermissionsRequest $request,Role $role)
     {
         try {
+            $resources = $this->roleResources->syncPermissions();
             $role = $this->roleService->setModel($role)->syncPermissions(permissions: $request->get('permissions_ids',[]))
                 ->getModel(
                     asResource: true,
-                    attributes: config('callmeaf-role.resources.sync_permissions.attributes'),
-                    relations: config('callmeaf-role.resources.sync_permissions.relations'),
+                    attributes: $resources->attributes(),
+                    relations: $resources->relations(),
                     events: [
                         RoleSyncedPermissions::class,
                     ],

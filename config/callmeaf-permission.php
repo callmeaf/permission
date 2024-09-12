@@ -20,35 +20,7 @@ return [
         'permission' => \Callmeaf\Permission\Utilities\V1\Permission\Api\PermissionFormRequestValidator::class,
     ],
     'resources' => [
-        'index' => [
-            'relations' => [],
-            'columns' => [
-                'id',
-                'name',
-            ],
-            'attributes' => [
-                'id',
-                'name',
-                'name_text',
-            ],
-        ],
-        'show' => [
-            'relations' => [
-                'roles',
-            ],
-            'attributes' => [
-                'id',
-                'name',
-                'name_text',
-                'roles',
-                '!roles' => [
-                    'id',
-                    'name',
-                    'name_fa',
-                    'name_full',
-                ],
-            ],
-        ],
+        'permission' => \Callmeaf\Permission\Utilities\V1\Permission\Api\PermissionResources::class,
     ],
     'controllers' => [
         'permissions' => \Callmeaf\Permission\Http\Controllers\V1\Api\PermissionController::class,

@@ -33,73 +33,7 @@ return [
         'role' => \Callmeaf\Permission\Utilities\V1\Role\Api\RoleFormRequestValidator::class,
     ],
     'resources' => [
-        'index' => [
-            'relations' => [],
-            'columns' => [
-                'id',
-                'name',
-                'name_fa',
-                'created_at',
-                'updated_at',
-            ],
-            'attributes' => [
-                'id',
-                'name',
-                'name_fa',
-                'created_at_text',
-                'updated_at_text',
-            ],
-        ],
-        'store' => [
-            'relations' => [],
-            'attributes' => [
-                'id',
-                'name',
-                'name_fa',
-                'created_at_text',
-                'updated_at_text',
-            ],
-        ],
-        'show' => [
-            'relations' => [],
-            'attributes' => [
-                'id',
-                'name',
-                'name_fa',
-                'created_at_text',
-                'updated_at_text',
-            ],
-        ],
-        'update' => [
-            'relations' => [],
-            'attributes' => [
-                'id',
-                'name',
-                'name_fa',
-                'created_at_text',
-                'updated_at_text',
-            ],
-        ],
-        'destroy' => [
-            'relations' => [],
-            'attributes' => [
-                'id',
-                'name',
-                'name_fa',
-                'created_at_text',
-                'updated_at_text',
-            ],
-        ],
-        'sync_permissions' => [
-            'relations' => [],
-            'attributes' => [
-                'id',
-                'name',
-                'name_fa',
-                'created_at_text',
-                'updated_at_text',
-            ],
-        ],
+        'role' => \Callmeaf\Permission\Utilities\V1\Role\Api\RoleResources::class,
     ],
     'controllers' => [
         'roles' => \Callmeaf\Permission\Http\Controllers\V1\Api\RoleController::class,
