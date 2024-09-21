@@ -4,6 +4,7 @@ namespace Callmeaf\Permission\Models;
 
 use Callmeaf\Base\Contracts\HasEnum;
 use Callmeaf\Base\Contracts\HasResponseTitles;
+use Callmeaf\Base\Enums\ResponseTitle;
 use Callmeaf\Base\Traits\HasDate;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
@@ -25,7 +26,7 @@ class Role extends \Spatie\Permission\Models\Role implements HasResponseTitles,H
     }
 
 
-    public function responseTitles(string $key,string $default = ''): string
+    public function responseTitles(ResponseTitle|string $key,string $default = ''): string
     {
         return [
             'store' => $this->fullName ?? $default,
@@ -35,7 +36,7 @@ class Role extends \Spatie\Permission\Models\Role implements HasResponseTitles,H
             'restore' => $this->fullName ?? $default,
             'force_destroy' => $this->fullName ?? $default,
             'sync_permissions' => $this->fullName ?? $default,
-        ][$key];
+        ][$key instanceof ResponseTitle ? $key->value : $key];
     }
 
     public static function enumsLang(): array

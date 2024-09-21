@@ -30,21 +30,21 @@ return [
 
     ],
     'validations' => [
-        'role' => \Callmeaf\Permission\Utilities\V1\Role\Api\RoleFormRequestValidator::class,
+        'role' => \Callmeaf\Permission\Utilities\V1\Api\Role\RoleFormRequestValidator::class,
     ],
     'resources' => [
-        'role' => \Callmeaf\Permission\Utilities\V1\Role\Api\RoleResources::class,
+        'role' => \Callmeaf\Permission\Utilities\V1\Api\Role\RoleResources::class,
     ],
     'controllers' => [
         'roles' => \Callmeaf\Permission\Http\Controllers\V1\Api\RoleController::class,
     ],
     'form_request_authorizers' => [
-        'role' => \Callmeaf\Permission\Utilities\V1\Role\Api\RoleFormRequestAuthorizer::class,
+        'role' => \Callmeaf\Permission\Utilities\V1\Api\Role\RoleFormRequestAuthorizer::class,
     ],
     'middlewares' => [
-        'role' => \Callmeaf\Permission\Utilities\V1\Role\Api\RoleControllerMiddleware::class,
+        'role' => \Callmeaf\Permission\Utilities\V1\Api\Role\RoleControllerMiddleware::class,
     ],
-    'searcher' => \Callmeaf\Permission\Utilities\V1\Role\Api\RoleSearcher::class,
+    'searcher' => \Callmeaf\Permission\Utilities\V1\Api\Role\RoleSearcher::class,
     'enums' => [
         'names' => \Callmeaf\Permission\Enums\RoleName::class,
     ],

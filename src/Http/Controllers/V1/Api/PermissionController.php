@@ -9,7 +9,7 @@ use Callmeaf\Permission\Http\Requests\V1\Api\PermissionIndexRequest;
 use Callmeaf\Permission\Http\Requests\V1\Api\PermissionShowRequest;
 use Callmeaf\Permission\Models\Permission;
 use Callmeaf\Permission\Services\V1\PermissionService;
-use Callmeaf\Permission\Utilities\V1\Permission\Api\PermissionResources;
+use Callmeaf\Permission\Utilities\V1\Api\Permission\PermissionResources;
 
 class PermissionController extends ApiController
 {

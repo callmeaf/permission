@@ -2,6 +2,7 @@
 
 namespace Callmeaf\Permission\Http\Controllers\V1\Api;
 
+use Callmeaf\Base\Enums\ResponseTitle;
 use Callmeaf\Base\Http\Controllers\V1\Api\ApiController;
 use Callmeaf\Permission\Events\RoleDestroyed;
 use Callmeaf\Permission\Events\RoleIndexed;
@@ -15,10 +16,9 @@ use Callmeaf\Permission\Http\Requests\V1\Api\RoleShowRequest;
 use Callmeaf\Permission\Http\Requests\V1\Api\RoleStoreRequest;
 use Callmeaf\Permission\Http\Requests\V1\Api\RoleSyncPermissionsRequest;
 use Callmeaf\Permission\Http\Requests\V1\Api\RoleUpdateRequest;
-use Callmeaf\Permission\Http\Resources\V1\Api\RoleResource;
 use Callmeaf\Permission\Models\Role;
 use Callmeaf\Permission\Services\V1\RoleService;
-use Callmeaf\Permission\Utilities\V1\Role\Api\RoleResources;
+use Callmeaf\Permission\Utilities\V1\Api\Role\RoleResources;
 
 class RoleController extends ApiController
 {
@@ -61,7 +61,7 @@ class RoleController extends ApiController
             return apiResponse([
                 'role' => $role,
             ],__('callmeaf-base::v1.successful_created', [
-                'title' => $role->responseTitles('store'),
+                'title' => $role->responseTitles(ResponseTitle::STORE),
             ]));
         } catch (\Exception $exception) {
             report($exception);
@@ -100,7 +100,7 @@ class RoleController extends ApiController
             return apiResponse([
                 'role' => $role,
             ],__('callmeaf-base::v1.successful_updated', [
-                'title' =>  $role->responseTitles('update')
+                'title' =>  $role->responseTitles(ResponseTitle::UPDATE)
             ]));
         } catch (\Exception $exception) {
             report($exception);
@@ -118,7 +118,7 @@ class RoleController extends ApiController
             return apiResponse([
                 'role' => $role,
             ],__('callmeaf-base::v1.successful_deleted', [
-                'title' =>  $role->responseTitles('destroy')
+                'title' =>  $role->responseTitles(ResponseTitle::DESTROY)
             ]));
         } catch (\Exception $exception) {
             report($exception);

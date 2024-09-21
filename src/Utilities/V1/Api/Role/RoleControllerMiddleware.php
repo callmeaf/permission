@@ -1,11 +1,11 @@
 <?php
 
-namespace Callmeaf\Permission\Utilities\V1\Permission\Api;
+namespace Callmeaf\Permission\Utilities\V1\Api\Role;
 
 use Callmeaf\Base\Http\Controllers\BaseController;
 use Callmeaf\Base\Utilities\V1\ControllerMiddleware;
 
-class PermissionControllerMiddleware extends ControllerMiddleware
+class RoleControllerMiddleware extends ControllerMiddleware
 {
     public function __invoke(BaseController $controller): void
     {
@@ -13,7 +13,10 @@ class PermissionControllerMiddleware extends ControllerMiddleware
             'auth:sanctum',
         ])->only([
             'index',
+            'store',
             'show',
+            'destroy',
+            'syncPermissions',
         ]);
     }
 }

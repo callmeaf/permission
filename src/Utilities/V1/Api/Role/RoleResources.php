@@ -1,6 +1,6 @@
 <?php
 
-namespace Callmeaf\Permission\Utilities\V1\Role\Api;
+namespace Callmeaf\Permission\Utilities\V1\Api\Role;
 
 use Callmeaf\Base\Utilities\V1\Resources;
 

@@ -17,21 +17,21 @@ return [
         ],
     ],
     'validations' => [
-        'permission' => \Callmeaf\Permission\Utilities\V1\Permission\Api\PermissionFormRequestValidator::class,
+        'permission' => \Callmeaf\Permission\Utilities\V1\Api\Permission\PermissionFormRequestValidator::class,
     ],
     'resources' => [
-        'permission' => \Callmeaf\Permission\Utilities\V1\Permission\Api\PermissionResources::class,
+        'permission' => \Callmeaf\Permission\Utilities\V1\Api\Permission\PermissionResources::class,
     ],
     'controllers' => [
         'permissions' => \Callmeaf\Permission\Http\Controllers\V1\Api\PermissionController::class,
     ],
     'form_request_authorizers' => [
-        'permission' => \Callmeaf\Permission\Utilities\V1\Permission\Api\PermissionFormRequestAuthorizer::class,
+        'permission' => \Callmeaf\Permission\Utilities\V1\Api\Permission\PermissionFormRequestAuthorizer::class,
     ],
     'middlewares' => [
-        'permission' => \Callmeaf\Permission\Utilities\V1\Permission\Api\PermissionControllerMiddleware::class,
+        'permission' => \Callmeaf\Permission\Utilities\V1\Api\Permission\PermissionControllerMiddleware::class,
     ],
-    'searcher' => \Callmeaf\Permission\Utilities\V1\Permission\Api\PermissionSearcher::class,
+    'searcher' => \Callmeaf\Permission\Utilities\V1\Api\Permission\PermissionSearcher::class,
     'seeders' => [
         \Callmeaf\Permission\Seeders\PermissionSeeder::class,
     ],

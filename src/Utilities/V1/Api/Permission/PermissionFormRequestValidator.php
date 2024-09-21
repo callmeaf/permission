@@ -1,6 +1,6 @@
 <?php
 
-namespace Callmeaf\Permission\Utilities\V1\Permission\Api;
+namespace Callmeaf\Permission\Utilities\V1\Api\Permission;
 
 
 use Callmeaf\Base\Utilities\V1\FormRequestValidator;

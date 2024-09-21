@@ -19,6 +19,11 @@ trait HasRoles
         return $this->hasRole(RoleName::ADMIN->value);
     }
 
+    public function isSuperAdminOrAdmin(): bool
+    {
+        return $this->isSuperAdmin() && $this->isAdmin();
+    }
+
     public function isUser(): bool
     {
         return $this->hasRole(RoleName::USER->value);
