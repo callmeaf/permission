@@ -21,7 +21,7 @@ trait HasRoles
 
     public function isSuperAdminOrAdmin(): bool
     {
-        return $this->isSuperAdmin() && $this->isAdmin();
+        return $this->isSuperAdmin() || $this->isAdmin();
     }
 
     public function isUser(): bool
