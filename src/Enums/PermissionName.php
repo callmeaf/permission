@@ -61,4 +61,19 @@ enum PermissionName: string
     case CART_TRASHED = 'cart_trashed';
     case CART_RESTORE = 'cart_restore';
     case CART_FORCE_DESTROY = 'cart_force_destroy';
+    case CONTINENT_INDEX = 'continent_index';
+    case CONTINENT_STORE = 'continent_store';
+    case CONTINENT_SHOW = 'continent_show';
+    case CONTINENT_UPDATE = 'continent_update';
+    case CONTINENT_DESTROY = 'continent_destroy';
+    case COUNTRY_INDEX = 'country_index';
+    case COUNTRY_STORE = 'country_store';
+    case COUNTRY_SHOW = 'country_show';
+    case COUNTRY_UPDATE = 'country_update';
+    case COUNTRY_DESTROY = 'country_destroy';
+    case PROVINCE_INDEX = 'province_index';
+    case PROVINCE_STORE = 'province_store';
+    case PROVINCE_SHOW = 'province_show';
+    case PROVINCE_UPDATE = 'province_update';
+    case PROVINCE_DESTROY = 'province_destroy';
 }
