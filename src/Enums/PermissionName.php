@@ -76,4 +76,9 @@ enum PermissionName: string
     case PROVINCE_SHOW = 'province_show';
     case PROVINCE_UPDATE = 'province_update';
     case PROVINCE_DESTROY = 'province_destroy';
+    case ADDRESS_INDEX = 'address_index';
+    case ADDRESS_STORE = 'address_store';
+    case ADDRESS_SHOW = 'address_show';
+    case ADDRESS_UPDATE = 'address_update';
+    case ADDRESS_DESTROY = 'address_destroy';
 }
