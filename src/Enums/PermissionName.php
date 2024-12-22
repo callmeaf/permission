@@ -81,4 +81,9 @@ enum PermissionName: string
     case ADDRESS_SHOW = 'address_show';
     case ADDRESS_UPDATE = 'address_update';
     case ADDRESS_DESTROY = 'address_destroy';
+    case VOUCHER_INDEX = 'voucher_index';
+    case VOUCHER_STORE = 'voucher_store';
+    case VOUCHER_SHOW = 'voucher_show';
+    case VOUCHER_UPDATE = 'voucher_update';
+    case VOUCHER_DESTROY = 'voucher_destroy';
 }
