@@ -17,9 +17,13 @@ class PermissionController extends ApiController
     protected PermissionResources $permissionResources;
     public function __construct()
     {
-        app(config('callmeaf-permission.middlewares.permission'))($this);
         $this->permissionService = app(config('callmeaf-permission.service'));
         $this->permissionResources = app(config('callmeaf-permission.resources.permission'));
+    }
+
+    public static function middleware(): array
+    {
+        return app(config('callmeaf-permission.middlewares.permission'))();
     }
 
     public function index(PermissionIndexRequest $request)
