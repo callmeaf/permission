@@ -53,6 +53,14 @@ enum PermissionName: string
     case PAYMENT_TRASHED = 'payment_trashed';
     case PAYMENT_RESTORE = 'payment_restore';
     case PAYMENT_FORCE_DESTROY = 'payment_force_destroy';
+    case ORDER_INDEX = 'order_index';
+    case ORDER_STORE = 'order_store';
+    case ORDER_SHOW = 'order_show';
+    case ORDER_UPDATE = 'order_update';
+    case ORDER_DESTROY = 'order_destroy';
+    case ORDER_TRASHED = 'order_trashed';
+    case ORDER_RESTORE = 'order_restore';
+    case ORDER_FORCE_DESTROY = 'order_force_destroy';
     case CART_INDEX = 'cart_index';
     case CART_STORE = 'cart_store';
     case CART_SHOW = 'cart_show';
