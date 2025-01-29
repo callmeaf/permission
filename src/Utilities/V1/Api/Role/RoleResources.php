@@ -21,6 +21,7 @@ class RoleResources extends Resources
                 'id',
                 'name',
                 'name_fa',
+                'full_name',
                 'created_at_text',
                 'updated_at_text',
             ],

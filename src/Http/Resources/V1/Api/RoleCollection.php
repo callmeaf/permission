@@ -24,6 +24,7 @@ class RoleCollection extends ResourceCollection
                 'id' => fn() => $role->id,
                 'name' => fn() => $role->name,
                 'name_fa' => fn() => $role->name_fa,
+                'full_name' => fn() => $role->fullName,
                 'created_at' => fn() => $role->created_at,
                 'created_at_text' => fn() => $role->createdAtText,
                 'updated_at' => fn() => $role->updated_at,
