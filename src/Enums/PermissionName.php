@@ -94,4 +94,5 @@ enum PermissionName: string
     case VOUCHER_SHOW = 'voucher_show';
     case VOUCHER_UPDATE = 'voucher_update';
     case VOUCHER_DESTROY = 'voucher_destroy';
+    case MEDIA_DESTROY = 'media_destroy';
 }
