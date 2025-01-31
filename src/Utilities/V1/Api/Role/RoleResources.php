@@ -47,13 +47,21 @@ class RoleResources extends Resources
     public function show(): self
     {
         $this->data = [
-            'relations' => [],
+            'relations' => [
+                "permissions"
+            ],
             'attributes' => [
                 'id',
                 'name',
                 'name_fa',
                 'created_at_text',
                 'updated_at_text',
+                'permissions',
+                '!permissions' => [
+                    'id',
+                    'name',
+                    'name_text',
+                ],
             ],
         ];
         return $this;

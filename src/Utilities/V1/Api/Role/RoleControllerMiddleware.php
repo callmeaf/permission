@@ -15,6 +15,7 @@ class RoleControllerMiddleware extends ControllerMiddleware
                 'index',
                 'store',
                 'show',
+                'update',
                 'destroy',
                 'syncPermissions',
             ])

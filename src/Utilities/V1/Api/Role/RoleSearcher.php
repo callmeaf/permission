@@ -10,11 +10,15 @@ class RoleSearcher implements SearcherInterface
     public function apply(Builder $query, array $filters = []): void
     {
         $filters = collect($filters)->filter(fn($item) => strlen(trim($item)));
-        if($value = $filters->get('name')) {
-            $query->where('name','like',searcherLikeValue($value));
-        }
-        if($value = $filters->get('name_fa')) {
-            $query->where('name_fa','like',searcherLikeValue($value));
-        }
+        $query->where(function (Builder $builder) use ($filters) {
+            $searcherSubClassQueryFunction = config('callmeaf-base.searcher_subclass_query_function');
+            if($value = $filters->get('name')) {
+                $builder->{$searcherSubClassQueryFunction}('name','like',searcherLikeValue($value));
+            }
+            if($value = $filters->get('name_fa')) {
+                $builder->{$searcherSubClassQueryFunction}('name_fa','like',searcherLikeValue($value));
+            }
+        });
+
     }
 }
