@@ -28,7 +28,6 @@ class RoleResource extends JsonResource
             'created_at_text' => fn() => $this->createdAtText,
             'updated_at' => fn() => $this->updated_at,
             'updated_at_text' => fn() => $this->updatedAtText,
-            'permissions_ids' => fn() => $this->permissions()->pluck('id'),
             'permissions' => fn() => $this->permissions->count() ? new (config('callmeaf-permission.model_resource_collection'))($this->permissions,only: $this->only['!permissions'] ?? []) : null,
         ],only: $this->only);
     }
