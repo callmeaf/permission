@@ -9,7 +9,10 @@ use Illuminate\Support\Facades\Route;
     $middleware,
 ] = Base::getRouteConfigFromRepo(repo: \Callmeaf\Permission\App\Repo\Contracts\PermissionRepoInterface::class);
 
-Route::apiResource($prefix, $controllers['permission'])->middleware($middleware);
+Route::apiResource($prefix, $controllers['permission'])->only([
+    'index',
+    'show'
+])->middleware($middleware);
 // Route::prefix($prefix)->as($as)->middleware($middleware)->controller($controllers['permission'])->group(function () {
     // Route::get('trashed/list', 'trashed');
     // Route::prefix('{permission}')->group(function () {
